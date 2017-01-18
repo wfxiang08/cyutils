@@ -4,7 +4,6 @@
 package utils
 
 import (
-	"fmt"
 	"net"
 	"os"
 	"path/filepath"
