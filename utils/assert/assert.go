@@ -4,7 +4,7 @@
 package assert
 
 import (
-	log "git.chunyu.me/golang/cyutils/utils/rolling_log"
+	log "github.com/wfxiang08/cyutils/utils/rolling_log"
 )
 
 func Must(b bool) {

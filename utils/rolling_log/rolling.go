@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"git.chunyu.me/golang/cyutils/utils/errors"
+	"github.com/wfxiang08/cyutils/utils/errors"
 )
 
 //  按天进行Rolling

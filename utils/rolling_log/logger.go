@@ -12,8 +12,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"git.chunyu.me/golang/cyutils/utils/errors"
-	"git.chunyu.me/golang/cyutils/utils/trace"
+	"github.com/wfxiang08/cyutils/utils/errors"
+	"github.com/wfxiang08/cyutils/utils/trace"
 )
 
 const (

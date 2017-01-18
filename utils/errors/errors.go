@@ -6,7 +6,7 @@ package errors
 import (
 	"errors"
 	"fmt"
-	"git.chunyu.me/golang/cyutils/utils/trace"
+	"github.com/wfxiang08/cyutils/utils/trace"
 )
 
 var TraceEnabled = true

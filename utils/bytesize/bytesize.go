@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"git.chunyu.me/golang/cyutils/utils/errors"
-	log "git.chunyu.me/golang/cyutils/utils/rolling_log"
+	"github.com/wfxiang08/cyutils/utils/errors"
+	log "github.com/wfxiang08/cyutils/utils/rolling_log"
 )
 
 const (

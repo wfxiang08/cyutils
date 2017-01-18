@@ -4,9 +4,9 @@
 package bytesize_test
 
 import (
-	"git.chunyu.me/golang/cyutils/utils/assert"
-	. "git.chunyu.me/golang/cyutils/utils/bytesize"
-	"git.chunyu.me/golang/cyutils/utils/errors"
+	"github.com/wfxiang08/cyutils/utils/assert"
+	. "github.com/wfxiang08/cyutils/utils/bytesize"
+	"github.com/wfxiang08/cyutils/utils/errors"
 	"testing"
 )
 
