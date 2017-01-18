@@ -13,24 +13,10 @@ import (
 	"time"
 	"unsafe"
 
-	"git.chunyu.me/golang/cyutils/utils/errors"
-	log "git.chunyu.me/golang/cyutils/utils/rolling_log"
-	"git.chunyu.me/infra/zkhelper"
+	"github.com/wfxiang08/cyutils/utils/errors"
+	log "github.com/wfxiang08/cyutils/utils/rolling_log"
 	"github.com/c4pt0r/cfg"
 )
-
-func InitConfig() (*cfg.Cfg, error) {
-	configFile := os.Getenv("CODIS_CONF")
-	if len(configFile) == 0 {
-		configFile = "config.ini"
-	}
-	ret := cfg.NewCfg(configFile)
-	if err := ret.Load(); err != nil {
-		return nil, errors.Trace(err)
-	} else {
-		return ret, nil
-	}
-}
 
 func InitConfigFromFile(filename string) (*cfg.Cfg, error) {
 	ret := cfg.NewCfg(filename)
@@ -68,11 +54,6 @@ func GetIpWithPrefix(prefix string) string {
 		}
 	}
 	return ""
-}
-
-func GetZkLock(zkConn zkhelper.Conn, productName string) zkhelper.ZLocker {
-	zkPath := fmt.Sprintf("/zk/codis/db_%s/LOCK", productName)
-	return zkhelper.CreateMutex(zkConn, zkPath)
 }
 
 func GetExecutorPath() string {
