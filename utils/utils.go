@@ -12,13 +12,13 @@ import (
 	"time"
 	"unsafe"
 
+	"github.com/wfxiang08/cyutils/utils/config"
 	"github.com/wfxiang08/cyutils/utils/errors"
 	log "github.com/wfxiang08/cyutils/utils/rolling_log"
-	"github.com/c4pt0r/cfg"
 )
 
-func InitConfigFromFile(filename string) (*cfg.Cfg, error) {
-	ret := cfg.NewCfg(filename)
+func InitConfigFromFile(filename string) (*config.Cfg, error) {
+	ret := config.NewCfg(filename)
 	if err := ret.Load(); err != nil {
 		return nil, errors.Trace(err)
 	}
