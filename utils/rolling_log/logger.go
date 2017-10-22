@@ -14,6 +14,9 @@ import (
 
 	"github.com/wfxiang08/cyutils/utils/errors"
 	"github.com/wfxiang08/cyutils/utils/trace"
+	"strings"
+	"syscall"
+	"time"
 )
 
 const (
@@ -596,4 +599,41 @@ func Printf(format string, v ...interface{}) {
 func Println(v ...interface{}) {
 	s := fmt.Sprintln(v...)
 	StdLog.output(1, nil, 0, s)
+}
+
+//
+// 设置LogLevel
+//
+func SetLogLevel(level string) {
+	var lv = LEVEL_INFO
+	switch strings.ToLower(level) {
+	case "error":
+		lv = LEVEL_ERROR
+	case "warn", "warning":
+		lv = LEVEL_WARN
+	case "debug":
+		lv = LEVEL_DEBUG
+	case "info":
+		fallthrough
+	default:
+		lv = LEVEL_INFO
+	}
+	SetLevel(lv)
+	Infof("set log level to %s", level)
+}
+
+//
+// 设置CrashLog
+//
+func SetCrashLog(file string) {
+	f, err := os.OpenFile(file, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		InfoErrorf(err, "cannot open crash log file: %s", file)
+	} else {
+		syscall.Dup2(int(f.Fd()), 2)
+	}
+}
+
+func FormatYYYYmmDDHHMMSS(date time.Time) string {
+	return date.Format("2006-01-02 15:04:05")
 }
