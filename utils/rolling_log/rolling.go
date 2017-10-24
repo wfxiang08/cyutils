@@ -14,6 +14,10 @@ import (
 	"github.com/wfxiang08/cyutils/utils/errors"
 )
 
+// 用法:
+//import (
+//	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+//)
 //  按天进行Rolling
 type rollingFile struct {
 	mu sync.Mutex
