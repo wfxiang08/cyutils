@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	cy_utils "github.com/wfxiang08/cyutils/utils"
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	log "github.com/wfxiang08/cyutils/utils/log"
 	"net"
 	"os"
 	"os/exec"

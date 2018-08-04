@@ -3,7 +3,7 @@ package http
 import (
 	"github.com/fatih/color"
 	"github.com/wfxiang08/cyutils/utils/atomic2"
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	log "github.com/wfxiang08/cyutils/utils/log"
 	"net/http"
 	_ "net/http/pprof"
 	"time"

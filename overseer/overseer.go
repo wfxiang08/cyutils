@@ -4,7 +4,7 @@ package overseer
 
 import (
 	"errors"
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	"github.com/wfxiang08/cyutils/utils/log"
 	"io/ioutil"
 	"os"
 	"path/filepath"

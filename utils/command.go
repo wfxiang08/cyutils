@@ -1,7 +1,7 @@
 package utils
 
 import (
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	log "github.com/wfxiang08/cyutils/utils/log"
 	"os/exec"
 	"strings"
 	"crypto/md5"

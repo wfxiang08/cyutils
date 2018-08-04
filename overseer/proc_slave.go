@@ -2,7 +2,7 @@ package overseer
 
 import (
 	"fmt"
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	"github.com/wfxiang08/cyutils/utils/log"
 	"net"
 	"os"
 	"os/signal"

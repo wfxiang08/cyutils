@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/wfxiang08/cyutils/utils/errors"
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	log "github.com/wfxiang08/cyutils/utils/log"
 )
 
 const (

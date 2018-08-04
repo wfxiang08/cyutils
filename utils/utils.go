@@ -9,12 +9,11 @@ import (
 	"path/filepath"
 	"reflect"
 	"strings"
-	"time"
 	"unsafe"
 
 	"github.com/wfxiang08/cyutils/utils/config"
 	"github.com/wfxiang08/cyutils/utils/errors"
-	log "github.com/wfxiang08/cyutils/utils/rolling_log"
+	"github.com/wfxiang08/cyutils/utils/log"
 )
 
 func InitConfigFromFile(filename string) (*config.Cfg, error) {
@@ -96,24 +95,6 @@ func Unwrap(msgs []string) (head string, tails []string) {
 	return
 }
 
-// 将msgs中前面多余的EMPTY_MSG删除，可能是 zeromq的不同的socket的配置不匹配导致的
-func TrimLeftEmptyMsg(msgs []string) []string {
-	for index, msg := range msgs {
-		if msg != EMPTY_MSG {
-			return msgs[index:len(msgs)]
-		}
-	}
-	return msgs
-}
-
-// 打印zeromq中的消息，用于Debug
-func PrintZeromqMsgs(msgs []string, prefix string) {
-
-	//	fmt.Printf("Message Length: %d, Prefix: %s\n", len(msgs), prefix)
-	//	for idx, msg := range msgs {
-	//		fmt.Printf("    idx: %d, msg: %s\n", idx, msg)
-	//	}
-}
 
 func Copy(s string) string {
 	var b []byte
@@ -132,14 +113,3 @@ func FileExist(file string) bool {
 	return !os.IsNotExist(err)
 }
 
-// 获取给定的日期的"开始时刻", 00:00:00
-func StartOfDay(t time.Time) time.Time {
-	year, month, day := t.Date()
-	return time.Date(year, month, day, 0, 0, 0, 0, t.Location())
-}
-
-// 第二天的开始时间
-func NextStartOfDay(t time.Time) time.Time {
-	year, month, day := t.Date()
-	return time.Date(year, month, day, 0, 0, 0, 0, t.Location()).AddDate(0, 0, 1)
-}
